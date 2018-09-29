@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slideGallery</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            // 갤러리 로드
+            var totalNum = 4;
+            var moveNum = 0;
+            var currentNum = 1;
+            for (i = 1; i <= totalNum; i++) {
+                //console.log(i);// 1 ~ 4 까지 찍어줌
+                $("#slideImg" + i).css("background", "url('images/gallery" + i + ".jpg')");
+                $("#slideImg" + i).css("background-size", "cover");
+            }
+            /*
+            $("#slideImg1").css("background", "url('images/gallery1.jpg')");
+            $("#slideImg1").css("background-size", "cover");
+
+            $("#slideImg2").css("background", "url('images/gallery2.jpg')");
+            $("#slideImg2").css("background-size", "cover");
+
+            $("#slideImg3").css("background", "url('images/gallery3.jpg')");
+            $("#slideImg3").css("background-size", "cover");
+
+            $("#slideImg4").css("background", "url('images/gallery4.jpg')");
+            $("#slideImg4").css("background-size", "cover"); 
+            */
+
+            // 이전버튼
+            $("#slidePrevBtn").on("click", function () {
+                if (currentNum == totalNum) {
+                    console.log(currentNum);
+                    $("#slidePrevBtn").hover(function(){
+                        $("#slidePrevBtn").css("cursor","default");    
+                    });
+                } else {
+                    moveNum = moveNum - 200;
+                    currentNum++;
+                    console.log(currentNum);
+                    for (i = 1; i <= totalNum; i++) {
+                        $(".slideImgClass").css("transform", "translateX(" + moveNum + "px)");
+                        //$("#slideImg" + i).css("transform", "translateX(" + moveNum + "px)");
+                    }
+                }
+            });
+        
+            // 다음버튼
+            $("#slideNextBtn").on("click", function(){
+                if(currentNum == 1) {
+                    $("#slideNextBtn").hover(function(){
+                        $("#slideNextBtn").css("cursor","default");    
+                    });
+                } else {
+                    moveNum = moveNum + 200;
+                    currentNum --;
+                    for (i = 1; i <= totalNum; i++) {
+                        $(".slideImgClass").css("transform", "translateX(" + moveNum + "px)");
+                    }
+                }
+            });
+            
+            
+        });
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        #galleryContainer {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            white-space: nowrap;
+            /* overflow: hidden; */
+        }
+
+        .slideBtn {
+            width: 50px;
+            border: 2px solid black;
+            text-align: center;
+            background: palevioletred;
+            cursor: pointer;
+        }
+
+        #slideSet {
+            border: 1px solid blue;
+            display: flex;
+            width: 400px;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px auto 0 auto;
+        }
+
+        .slideImgClass {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            transition: all 1s ease;
+        }
+
+        #slidePrevBtn {
+            z-index: 1;
+        }
+
+        #slideNextBtn {
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideSet">
+        <div id="slidePrevBtn" class="slideBtn">prev</div>
+        <div id="galleryContainer">
+            <div id="slideImg1" class="slideImgClass">1</div><div id="slideImg2" class="slideImgClass">2</div><div id="slideImg3" class="slideImgClass">3</div><div id="slideImg4" class="slideImgClass">4</div>
+        </div>
+        <div id="slideNextBtn" class="slideBtn">next</div>
+    </div>
+</body>
+
+</html>

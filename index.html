@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>군산스탬프 나들이</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <link href="css/header.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Nanum+Gothic|Noto+Sans+KR" rel="stylesheet">
+    <script>
+        var navToggle = false;
+        $(function () {
+            //창이 1440 이상 되면 메뉴 무조건 보이게
+            $(window).on("resize", function () {
+                console.log($(window).width());
+                if ($(window).width() >= 1024) {
+                    $("nav").css("display", "block");
+                    navToggle = false;
+                } if ($(window).width() < 1024 && !navToggle) {
+                    $("nav").css("display", "none");
+                }
+            });
+
+            // GNB 햄버거 메뉴
+            $("#hambuger1").on("click", function () {
+                //$("nav").toggle();
+                if (navToggle) {
+                    $("nav").slideUp();
+                    navToggle = false;
+                } else {
+                    $("nav").slideDown();
+                    navToggle = true;
+                }
+            });
+            //GNB 닫기버튼
+            $("nav li:last-child").on("click", function () {
+                $("nav").slideUp();
+                navToggle = false;
+            });
+            // 배경이미지 로드
+            var mainBgNum = 1;
+            var totalmainBgNum = 4;
+            function mainBgLoad() {
+                $("header").css("background", "url('images/bg" + mainBgNum + ".jpg')");
+                $("header").css("background-size", "cover");
+                $("header").css("background-position", "center bottom");
+            }
+            $("#header_prev").on("click", function () {
+                if (mainBgNum == 1) {
+                    mainBgNum = totalmainBgNum;
+                } else {
+                    mainBgNum--;
+                }
+                mainBgLoad();
+            });
+            $("#header_next").on("click", function () {
+                if (mainBgNum == totalmainBgNum) {
+                    mainBgNum = 1;
+                } else {
+                    mainBgNum++;
+                }
+                mainBgLoad();
+            });
+            // food - 맛이나군-------------------------//
+
+            // food - 맛이나군-------------------------//
+
+            // 섹션4 스탬프투어 -------------------------//
+            var section4Num;
+            var currentNum = 1;
+            var section4TotalNum = 4;
+            var section4MoveNum = 0;
+            for (i = 1; i <= section4TotalNum; i++) {
+                console.log(i);
+                $("#section4Img" + i).css("background", "url('images/section4Img" + i + ".jpg')");
+                $("#section4Img" + i).css("background-size", "cover");
+                $("#section4Img" + i).css("background-position", "right");
+            }
+            // <버튼
+            $("#section4PrevBtn").on("click", function () {
+                if (currentNum == section4TotalNum) {
+                    //
+                } else {
+                    section4MoveNum = section4MoveNum - 300;
+                    currentNum++;
+                    $(".section4Img").css("transform", "translateX(" + section4MoveNum + "px)");
+                }
+            });
+            // > 버튼
+            $("#section4NextBtn").on("click", function () {
+                if (currentNum == 1) {
+                    //
+                } else {
+                    currentNum--;
+                    section4MoveNum = section4MoveNum + 300;
+                    $(".section4Img").css("transform", "translateX(" + section4MoveNum + "px)");
+                }
+            });
+            // 섹션4 스탬프투어-------------------------//
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="hambuger1">&equiv;</div>
+        <h1>군산스탬프나들이</h1>
+        <nav>
+            <ul>
+                <li><a href="#">스탬프투어통합권예매</a></li>
+                <li><a href="#">스탬프투어8경</a></li>
+                <li><a href="#">추억포토북만들기</a></li>
+                <li><a href="#">close</a></li>
+            </ul>
+        </nav>
+        <div id="kor">kor &dtrif;</div>
+        <div id="hambuger2"><img src="images/hambuger2.png" alt="햄버거메뉴"></div>
+        <div id="header_prev">&lsaquo;</div>
+        <div id="header_txt">
+            <mark>역사와 문화가 흐르는 도시,</mark> <span class="header_txtT1"><mark>군산</mark></span><br>
+            <mark>역사와 현대문화가 어우러져<br>만들어내는 아름다움.<br> 그 속에서 주어지는
+            </mark><span class="header_txtT1"><mark>힐링</mark></span>
+        </div>
+        <div id="header_next">&rsaquo;</div>
+    </header>
+
+    <section id="section1">
+        <h2><img src="images/sectionTitle1.png" alt="섹션1"></h2>
+        <h3>특별한 멋이 있는 군산 명소</h3>
+        <div id="placeGallerySet">
+            <div id="placePrevBtn" class="placeBtnClass"><img src="images/placePrevBtn.png" alt="placeprev"></div>
+
+            <div id="placeImgSet">
+                <div id="placeRibbon">
+                    <div id="placeRibbon1">추천<br>이야기</div>
+                    <div id="placeRibbon2"></div>
+                </div>
+                <div id="placeImg1"></div>
+                <div id="placeImg2"></div>
+                <div id="placeTextBox">
+                    <div id="placeTitle">타이틀이름명칭</div>
+                    <div id="placeText">내용내용내용내용내용내용내용내용내용내용내용내용내용 내용 내용내용내용내용내용내용내용내용내용내용내용내용 내용내용 내용내용내용내내용내용 내용내용내용내용내용 내용내용내용내용내용내용내용내용.....
+                    </div>
+                    <div id="placeMore">자세히보기></div>
+                </div>
+            </div>
+
+            <div id="placeNextBtn" class="placeBtnClass"><img src="images/placeNextBtn.png" alt="placeNextBtn"></div>
+        </div>
+        <div id="placeListSet">
+            <div id="placeList1" class="placeListClass"></div>
+            <div id="placeList2" class="placeListClass"></div>
+            <div id="placeList3" class="placeListClass"></div>
+            <div id="placeList4" class="placeListClass"></div>
+            <div id="placeList5" class="placeListClass"></div>
+            <div id="placeList6" class="placeListClass"></div>
+            <div id="placeList7" class="placeListClass"></div>
+            <div id="placeList8" class="placeListClass"></div>
+        </div>
+    </section>
+
+    <section id="section2">
+        <h2><img src="images/sectionTitle2.png" alt="섹션2 타이틀"></h2>
+        <h3>맛따라 멋따라 군산먹거리</h3>
+        <div id="foodSet">
+            <div class="foodArrow">&lang;</div>
+            <div id="foodPicSet1" class="foodPicSet">
+                <div id="foodPic1" class="foodClassPic"></div>
+                <div id="foodText1_1" class="foodText1"><strong>군산곰탕거리</strong></div>
+                <div id="foodText1_2" class="foodText2">군산 육류문화의<br>대표거리</div>
+            </div>
+            <div id="foodPicSet2" class="foodPicSet">
+                <div id="foodPic2" class="foodClassPic"></div>
+                <div id="foodText2_1" class="foodText1"><strong>군산곰탕거리</strong></div>
+                <div id="foodText2_2" class="foodText2">군산 육류문화의<br>대표거리</div>
+            </div>
+            <div id="foodPicSet3" class="foodPicSet">
+                <div id="foodPic3" class="foodClassPic"></div>
+                <div id="foodText3_1" class="foodText1"><strong>군산곰탕거리</strong></div>
+                <div id="foodText3_2" class="foodText2">군산 육류문화의<br>대표거리</div>
+            </div>
+            <div id="foodPicSet4" class="foodPicSet">
+                <div id="foodPic4" class="foodClassPic"></div>
+                <div id="foodText4_1" class="foodText1"><strong>군산곰탕거리</strong></div>
+                <div id="foodText4_2" class="foodText2">군산 육류문화의<br>대표거리</div>
+            </div>
+            <div id="foodPicSet5" class="foodPicSet">
+                <div id="foodPic5" class="foodClassPic"></div>
+                <div id="foodText5_1" class="foodText1"><strong>군산곰탕거리</strong></div>
+                <div id="foodText5_2" class="foodText2">군산 육류문화의<br>대표거리</div>
+            </div>
+            <div class="foodArrow">&rang;</div>
+        </div>
+
+    </section>
+    <section id="section3">
+        <h2><img src="images/sectionTitle3.png" alt="섹션타이틀"></h2>
+        <h3>이야기따라 떠나는 군산</h3>
+    </section>
+    <section id="section4">
+        <div id="section4wrap">
+            <div id="section4PrevBtn" class="section4Btn">&lang;</div>
+            <div id="section4Gallerywrap">
+                <div id="section4TextBox">
+                    <h2>군산스탬프투어</h2>
+                    <h3>스탬프도 찍고, 군산도 여행하고!</h3>
+                    <div id="section4TextBox2">
+                        <div id="section4Text">내용내용내용내용내용내용내용내용내용내용 내용 내용내용내용내용내용내용내용내용내용내용내용내용 내용내용 내용내용내용내내용내용 내용내용내용내용내용 내용내용내용내용내용내용내용내용..</div>
+                        <div id="section4more">자세히보기</div>
+                    </div>
+                </div>
+
+                <div id="section4Gallery">
+                    <div id="section4Img1" class="section4Img">1</div>
+                    <div id="section4Img2" class="section4Img">2</div>
+                    <div id="section4Img3" class="section4Img">3</div>
+                    <div id="section4Img4" class="section4Img">4</div>
+                </div>
+            </div>
+            <div id="section4NextBtn" class="section4Btn">&rang;</div>
+
+        </div>
+    </section>
+
+    <aside id="asideSet">
+        <div id="noticeSet">
+            <table>
+                <tr>
+                    <th>공지사항</th>
+                    <th>+</th>
+                </tr>
+                <tr>
+                    <td>&bull; 스탬프투어공지사항입니다</td>
+                    <td>2018.09.14</td>
+                </tr>
+                <tr>
+                    <td>&bull;스탬프투어공지사항입니다</td>
+                    <td>2018.09.14</td>
+                </tr>
+                <tr>
+                    <td>&bull;스탬프투어공지사항입니다</td>
+                    <td>2018.09.14</td>
+                </tr>
+                <tr>
+                    <td>&bull;스탬프투어공지사항입니다</td>
+                    <td>2018.09.14</td>
+                </tr>
+                <tr>
+                    <td>&bull;스탬프투어공지사항입니다</td>
+                    <td>2018.09.14</td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+        <div id="snsSet">
+            <div id="snsSet1">
+                <div id="snsPicSet1" class="snsPicClassSet">
+                    <div id="snsPic1" class="snsPicClass"></div>
+                    <div id="snsText1" class="snsTextClass">나주사이버투어</div>
+                </div>
+                <div id="snsPicSet2" class="snsPicClassSet">
+                    <div id="snsPic2" class="snsPicClass"></div>
+                    <div id="snsText2" class="snsTextClass">관광안내<br>책자신청</div>
+                </div>
+            </div>
+            <div id="snsSet2">
+                <div id="snsPicSet3" class="snsPicClassSet">
+                    <div id="snsPic3" class="snsPicClass"></div>
+                    <div id="snsText3" class="snsTextClass">관광지<br>추천서비스</div>
+                </div>
+                <div id="snsPicSet4" class="snsPicClassSet">
+                    <div id="snsPic4" class="snsPicClass"></div>
+                    <div id="snsText4" class="snsTextClass">나만의 여행코스<br>만들기</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <div id="sns">
+            <div id="sns1">
+                <a href="#">
+                    <div id="nCafe" class="snsClass"></div>
+                </a>
+                <a href="#">
+                    <div id="nCafet" class="snstext">네이버카페</div>
+                </a>
+            </div>
+            <div id="sns2">
+                <a href="#">
+                    <div id="nBlog" class="snsClass"></div>
+                </a>
+                <a href="#">
+                    <div id="nBlogt" class="snstext">블로그</div>
+                </a>
+            </div>
+            <div id="sns3">
+                <a href="#">
+                    <div id="facebook" class="snsClass"></div>
+                </a>
+                <a href="#">
+                    <div id="facebookt" class="snstext">페이스북</div>
+                </a>
+            </div>
+            <div id="sns4">
+                <a href="#">
+                    <div id="instagram" class="snsClass"></div>
+                </a>
+                <a href="#">
+                    <div id="instagramt" class="snstext">인스타그램</div>
+                </a>
+            </div>
+            <div id="sns5">
+                <a href="#">
+                    <div id="youtube" class="snsClass"></div>
+                </a>
+                <a href="#">
+                    <div id="youtubet" class="snstext">유튜브</div>
+                </a>
+            </div>
+        </div>
+        <div id="footer1">
+            <div id="footerLogo">군산스탬프 나들이</div>
+            <div id="footerText">
+                <address>서울시 마포구 서교동 1번지</address>
+                <p>TEL : 010-1234-1234</p>
+                <p>copyright &copy; 2018 SiteMaster. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

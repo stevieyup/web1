@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation2</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background: palegreen;
+            margin: 10px 0 10px 100px;
+            transition-property: all;
+            transition-duration: 10s;
+        }
+        #box:hover {
+            background: peru;
+            width: 400px;
+            height: 400px;
+        }
+        .button {
+            cursor: pointer;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 20px 0;
+            border: 1px solid gary;
+            width:100px;
+            height: 50px;
+            background: palevioletred;
+            text-align: center;
+            line-height: 50px;
+
+        }
+        
+    </style>
+    
+</head>
+<body>
+    <h1>animation2</h1>
+    <div id="box">box</div>
+    <div id="translate" class="button">tanslate</div>
+    <div id="scale" class="button">scale</div>
+    <div id="rotate" class="button">rotate</div>
+    <div id="skew" class="button">skew</div>
+</body>
+</html>

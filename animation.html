@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+            $(function(){
+                var s= true;
+                $("#translate").on("click", function(){
+                    if(s==true){
+                    $("#box").css("transform","translate(50px, 50px)")
+                    s=false;
+                } else {
+                    $("#box").css("transform","translate(0, 0)")
+                    s=true;
+                }
+                });
+                $("#scale").on("click", function(){
+                    if(s==true){
+                    $("#box").css("transform","scale(1.2, 1.2)")
+                    s=false;
+                } else {
+                    $("#box").css("transform","scale(1, 1)")
+                    s=true;
+                }
+                });
+                $("#rotate").on("click", function(){
+                    if(s==true){
+                    $("#box").css("transform","rotate(45deg)")
+                    s=false;
+                    } else {
+                    $("#box").css("transform","rotate(0)")
+                    s=true;
+                }
+                });
+                $("#skew").on("click", function(){
+                    if(s==true){
+                    $("#box").css("transform","skew(45deg)")
+                    s=false;
+                    } else {
+                    $("#box").css("transform","skew(0)")
+                    s=true;
+                }
+                });
+            });
+        
+            </script>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background: palegreen;
+            margin: 10px 0 10px 100px;
+        }
+        .button {
+            cursor: pointer;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 20px 0;
+            border: 1px solid gary;
+            width:100px;
+            height: 50px;
+            background: palevioletred;
+            text-align: center;
+            line-height: 50px;
+
+        }
+        #box:hover {
+            background: peru;
+            /* transform: translate(100px, 100px); */
+            /* transform: scaleX(1.2);
+            transform: scale(2,2); */
+            /* transform: rotate(20deg); */
+            /* transform: skew(20deg); */
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>animation</h1>
+    <div id="box">box</div>
+    <div id="translate" class="button">tanslate</div>
+    <div id="scale" class="button">scale</div>
+    <div id="rotate" class="button">rotate</div>
+    <div id="skew" class="button">skew</div>
+</body>
+</html>

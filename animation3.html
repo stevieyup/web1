@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+        $(function(){
+            $("#translate").on("click", function(){
+                $("#box").css("background","red");
+                $("#box").css("transform", "translate(100px, 100px)");
+                $("#box").css("width", "500px");
+                $("#box").css("height", "500px");
+            });
+            $("#translateX").on("click", function(){
+                $("#box").css("transform","translateX(100px)");
+            });
+            $("#translateY").on("click", function(){
+                $("#box").css("transform","translateY(100px)");
+            });
+            $("#scale").on("click", function(){
+                $("#box").css("transform","scale(0.5)");
+            });
+            $("#scaleX").on("click", function(){
+                $("#box").css("transform","scaleX(0.5)");
+            });
+            $("#scaleY").on("click", function(){
+                $("#box").css("transform","scaleY(0.5)");
+            });
+
+            
+        });
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background: powderblue;
+            border: 1px solid black;
+            border-radius: 250px;
+            transition: all 1s ease;  /*트랜지션: 모든속성에 1초동안 점점느리게*/
+        }
+        #box:hover {
+            /* transform: translate(100px, 100px); */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">box</div>
+    <p>
+        <button id="translate">translate</button>
+        <button id="translateX">translateX</button>
+        <button id="translateY">translateY</button>
+        <button id="translateZ">translateZ</button>
+    </p>
+    <p>
+        <button id="scale">scale</button>
+        <button id="scaleX">scaleX</button>
+        <button id="scaleY">scaleY</button>
+    </p>
+    <p>
+        <button id="rotate">rotate</button>
+    </p>
+    <p>
+        <button id="skew">skew</button>
+        <button id="skewX">skewX</button>
+        <button id="skewY">skewY</button>
+    </p>
+</body>
+
+</html>
